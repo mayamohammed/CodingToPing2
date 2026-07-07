@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 const services = [
   {
     id: 1,
-    label: 'Développement web',
-    desc: 'Sites vitrines, sites e-commerce et plateformes sur mesure.',
+    label: 'Web Development',
+    desc: 'Corporate sites, e-commerce, and custom platforms.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Browser frame */}
@@ -29,8 +29,8 @@ const services = [
   },
   {
     id: 2,
-    label: 'Applications web',
-    desc: 'Applications métiers performantes et évolutives.',
+    label: 'Web Applications',
+    desc: 'High-performance and scalable business applications.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         <rect x="4" y="10" width="56" height="40" rx="4" />
@@ -49,8 +49,8 @@ const services = [
   },
   {
     id: 3,
-    label: 'Automatisation IA',
-    desc: 'Automatisez vos tâches et gagnez en productivité.',
+    label: 'AI Automation',
+    desc: 'Automate your tasks and increase productivity.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Brain shape */}
@@ -74,8 +74,8 @@ const services = [
   },
   {
     id: 4,
-    label: 'Chatbots intelligents',
-    desc: 'Chatbots IA pour améliorer votre service client 24/7.',
+    label: 'Smart Chatbots',
+    desc: 'AI chatbots to improve your 24/7 customer service.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Chat bubble */}
@@ -90,7 +90,7 @@ const services = [
   {
     id: 5,
     label: 'Dashboards & BI',
-    desc: 'Tableaux de bord interactifs et suivi en temps réel.',
+    desc: 'Interactive dashboards and real-time tracking.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         <rect x="6" y="8" width="52" height="48" rx="4" />
@@ -112,8 +112,8 @@ const services = [
   },
   {
     id: 6,
-    label: 'Intégration & API',
-    desc: "Intégration d'API et connexion de vos outils.",
+    label: 'API & Integration',
+    desc: 'API integration and tool connectivity.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Puzzle pieces */}
@@ -129,8 +129,8 @@ const services = [
   },
   {
     id: 7,
-    label: 'Maintenance & support',
-    desc: 'Support technique réactif et maintenance continue.',
+    label: 'Maintenance & Support',
+    desc: 'Responsive technical support and continuous maintenance.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Headset */}
@@ -147,8 +147,8 @@ const services = [
   },
   {
     id: 8,
-    label: 'SEO & Réferencement',
-    desc: 'Améliorez votre visibilité et attirez plus de trafic.',
+    label: 'SEO & Optimization',
+    desc: 'Improve your visibility and attract more traffic.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Magnifying glass */}
@@ -166,7 +166,7 @@ const services = [
   {
     id: 9,
     label: 'E-commerce',
-    desc: 'Boutiques en ligne sécurisées et optimisées pour convertir.',
+    desc: 'Secure online stores optimized for conversion.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Cart */}
@@ -186,7 +186,7 @@ const services = [
   {
     id: 10,
     label: 'UI/UX Design',
-    desc: 'Interfaces modernes, intuitives et centrées utilisateur.',
+    desc: 'Modern, intuitive, and user-centric interfaces.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         {/* Monitor */}
@@ -266,10 +266,10 @@ export default function Services() {
       <div className="svc2-container">
         {/* Header */}
         <div className="svc2-header">
-          <h2 className="svc2-title">Nos services</h2>
+          <h2 className="svc2-title">Our Services</h2>
           <div className="svc2-red-bar"/>
           <p className="svc2-subtitle">
-            Des solutions digitales sur mesure pour accélérer la croissance de votre entreprise.
+            Tailor-made digital solutions to accelerate your business growth.
           </p>
         </div>
 

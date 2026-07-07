@@ -4,8 +4,8 @@ const steps = [
   {
     id: 1,
     number: '01',
-    title: 'Découverte & Audit',
-    desc: 'Nous analysons votre activité, vos objectifs et votre écosystème digital pour identifier les leviers de croissance.',
+    title: 'Discovery & Audit',
+    desc: 'We analyze your business, goals, and digital ecosystem to identify growth levers.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="methode-svg">
         {/* Magnifying glass */}
@@ -25,8 +25,8 @@ const steps = [
   {
     id: 2,
     number: '02',
-    title: 'Stratégie & Planification',
-    desc: 'Nous concevons une stratégie sur mesure avec un plan d\'action clair, des objectifs mesurables et un calendrier précis.',
+    title: 'Strategy & Planning',
+    desc: 'We design a custom strategy with a clear action plan, measurable goals, and a precise timeline.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="methode-svg">
         {/* Clipboard */}
@@ -49,8 +49,8 @@ const steps = [
   {
     id: 3,
     number: '03',
-    title: 'Design & Prototypage',
-    desc: 'Nos designers créent des maquettes interactives et des prototypes haute fidélité validés avec vous à chaque étape.',
+    title: 'Design & Prototyping',
+    desc: 'Our designers create interactive mockups and high-fidelity prototypes validated with you at each step.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="methode-svg">
         {/* Pen tool / bezier */}
@@ -74,8 +74,8 @@ const steps = [
   {
     id: 4,
     number: '04',
-    title: 'Développement Agile',
-    desc: 'Développement itératif avec des sprints courts, des livrables réguliers et une communication transparente.',
+    title: 'Agile Development',
+    desc: 'Iterative development with short sprints, regular deliverables, and transparent communication.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="methode-svg">
         {/* Code brackets */}
@@ -96,8 +96,8 @@ const steps = [
   {
     id: 5,
     number: '05',
-    title: 'Tests & Validation',
-    desc: 'Tests rigoureux de performance, sécurité et UX avant chaque mise en production pour garantir la qualité.',
+    title: 'Testing & Validation',
+    desc: 'Rigorous performance, security, and UX testing before every production release to ensure quality.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="methode-svg">
         {/* Shield */}
@@ -112,8 +112,8 @@ const steps = [
   {
     id: 6,
     number: '06',
-    title: 'Lancement & Suivi',
-    desc: 'Déploiement optimisé, formation de vos équipes et suivi continu pour assurer le succès à long terme.',
+    title: 'Launch & Support',
+    desc: 'Optimized deployment, team training, and continuous support to ensure long-term success.',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="methode-svg">
         {/* Rocket */}
@@ -169,11 +169,11 @@ export default function Methode() {
       <div className="methode-container">
         {/* Header */}
         <div className="methode-header">
-          <span className="methode-badge">Comment nous travaillons</span>
-          <h2 className="methode-title">Notre méthode</h2>
+          <span className="methode-badge">How we work</span>
+          <h2 className="methode-title">Our Methodology</h2>
           <div className="methode-red-bar" />
           <p className="methode-subtitle">
-            Une approche structurée et transparente, conçue pour transformer vos idées en solutions digitales performantes.
+            A structured and transparent approach designed to turn your ideas into high-performance digital solutions.
           </p>
         </div>
 

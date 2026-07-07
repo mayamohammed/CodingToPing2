@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const row1Services = [
   {
     id: 1,
-    label: 'Sites web',
+    label: 'Websites',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         <rect x="4" y="10" width="56" height="40" rx="4" />
@@ -24,7 +24,7 @@ const row1Services = [
   },
   {
     id: 2,
-    label: 'Applications web',
+    label: 'Web Apps',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         <rect x="4" y="10" width="56" height="40" rx="4" />
@@ -42,7 +42,7 @@ const row1Services = [
   },
   {
     id: 3,
-    label: 'Automatisation IA',
+    label: 'AI Automation',
     icon: (
       <svg viewBox="0 0 64 64" fill="none" stroke="#111" strokeWidth="1.6" className="svc2-svg">
         <path d="M32 16 C24 16 18 22 18 30 C18 36 22 40 28 42 L28 48 L36 48 L36 42 C42 40 46 36 46 30 C46 22 40 16 32 16 Z" />
@@ -135,13 +135,13 @@ export default function Hero() {
         </div>
 
         <h1 className="hero-headline">
-          Agence <span className="ia-red">IA</span> + Développement Web<br />pour PME Marocaines
+          <span className="ia-red">AI</span> Agency + Web Development<br />for Moroccan SMEs
         </h1>
 
         <div className="hero-divider"></div>
 
         <p className="hero-subtitle">
-          Nous aidons les PME à digitaliser leurs ventes,<br />leurs opérations et leur service client.
+          We help SMEs digitize their sales,<br />their operations, and their customer service.
         </p>
 
         {/* Row 1 cards in hero */}
@@ -169,7 +169,7 @@ export default function Hero() {
           <div className="hero-tagline-dot"></div>
           <span className="hero-tagline-text">Performance</span>
           <div className="hero-tagline-dot"></div>
-          <span className="hero-tagline-text">Accompagnement</span>
+          <span className="hero-tagline-text">Support</span>
         </div>
       </div>
     </section>

@@ -7,24 +7,24 @@ export default function Footer() {
         <div className="footer-top">
           <div>
             <img src="/coding_to_ping.png" alt="Coding To Ping" style={{ height: '72px', width: 'auto', display: 'block', borderRadius: '6px', marginBottom: '16px' }} />
-            <div className="footer-desc">Agence IA + Développement Web pour PME Marocaines. Digitalisation, automatisation et croissance.</div>
+            <div className="footer-desc">AI Agency + Web Development for Moroccan SMEs. Digitalization, automation, and growth.</div>
           </div>
           <div>
             <div className="footer-col-title">Services</div>
             <div className="footer-links">
-              <a href="#">Sites web</a>
-              <a href="#">Applications web</a>
-              <a href="#">Automatisation IA</a>
+              <a href="#">Websites</a>
+              <a href="#">Web Apps</a>
+              <a href="#">AI Automation</a>
               <a href="#">Chatbots</a>
               <a href="#">Dashboards</a>
             </div>
           </div>
           <div>
-            <div className="footer-col-title">Entreprise</div>
+            <div className="footer-col-title">Company</div>
             <div className="footer-links">
-              <a href="#">À propos</a>
-              <a href="#">Réalisations</a>
-              <a href="#">Notre méthode</a>
+              <a href="#">About</a>
+              <a href="#">Portfolio</a>
+              <a href="#">Our Methodology</a>
               <a href="#">Blog</a>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <div className="footer-copy">© 2025 <span>codPING</span> · Coding to Ping. Tous droits réservés.</div>
+          <div className="footer-copy">© 2026 <span>codPING</span> · Coding to Ping. All rights reserved.</div>
           <div className="footer-socials">
             <a className="social-pill" href="#" title="LinkedIn">in</a>
             <a className="social-pill" href="#" title="Instagram">ig</a>
