@@ -22,9 +22,9 @@ export default function Navbar() {
   const links = [
     { href: '#services', label: 'Services' },
     { href: '#solutions', label: 'Solutions' },
-    { href: '#methode',  label: 'Methodology' },
-    { href: '#projets',  label: 'Projects' },
-    { href: '#contact',  label: 'Contact' },
+    { href: '#methode', label: 'Methodology' },
+    { href: '#projets', label: 'Projects' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 const row1Services = [
   {
@@ -96,35 +96,8 @@ const row1Services = [
 ];
 
 export default function Hero() {
-  const heroRef = useRef(null);
-  const cardsContainerRef = useRef(null);
-  const [phase, setPhase] = useState('hero'); // 'hero' | 'exiting' | 'gone'
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!heroRef.current) return;
-      const heroRect = heroRef.current.getBoundingClientRect();
-      const heroBottom = heroRect.bottom;
-      const viewportH = window.innerHeight;
-
-      // When hero bottom is near or past the top of the viewport, cards should be gone
-      // When hero bottom is in the bottom 30% of viewport, start exiting
-      if (heroBottom < viewportH * 0.35) {
-        setPhase('gone');
-      } else if (heroBottom < viewportH * 0.75) {
-        setPhase('exiting');
-      } else {
-        setPhase('hero');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section className="hero" id="hero" ref={heroRef}>
+    <section className="hero" id="hero">
       <div className="hero-content">
         <div style={{ marginBottom: '30px' }}>
           <img
@@ -145,10 +118,7 @@ export default function Hero() {
         </p>
 
         {/* Row 1 cards in hero */}
-        <div
-          className={`hero-service-cards hero-cards--${phase}`}
-          ref={cardsContainerRef}
-        >
+        <div className="hero-service-cards">
           {row1Services.map((s, i) => (
             <div
               className="hero-svc-card"
