@@ -1,6 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import servicesData from '../data/servicesData';
 
-const services = [
+const services = servicesData.map(s => ({
+  ...s,
+  icon: React.cloneElement(s.icon, { className: 'svc2-svg', stroke: '#111' })
+}));
+
+const servicesOld = [
   {
     id: 1,
     label: 'Web Development',
@@ -209,6 +216,9 @@ const services = [
   },
 ];
 
+// servicesOld is unused, data comes from servicesData now
+void servicesOld;
+
 export default function Services() {
   const row1Ref = useRef(null);
   const [row1Visible, setRow1Visible] = useState(false);
@@ -296,20 +306,22 @@ export default function Services() {
 
 function ServiceCard({ service }) {
   return (
-    <div className="svc2-card">
-      {/* Animated blob background */}
-      <div className="svc2-blob" aria-hidden="true"/>
-      {/* Glass inner layer */}
-      <div className="svc2-bg">
-        <div className="svc2-card-inner">
-          <div className="svc2-icon-area">
-            {service.icon}
+    <Link to={`/services/${service.slug}`} className="svc2-card-link-wrap">
+      <div className="svc2-card">
+        {/* Animated blob background */}
+        <div className="svc2-blob" aria-hidden="true"/>
+        {/* Glass inner layer */}
+        <div className="svc2-bg">
+          <div className="svc2-card-inner">
+            <div className="svc2-icon-area">
+              {service.icon}
+            </div>
+            <h3 className="svc2-card-title">{service.label}</h3>
+            <div className="svc2-card-bar"/>
+            <p className="svc2-card-desc">{service.desc}</p>
           </div>
-          <h3 className="svc2-card-title">{service.label}</h3>
-          <div className="svc2-card-bar"/>
-          <p className="svc2-card-desc">{service.desc}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

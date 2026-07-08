@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
@@ -19,12 +20,14 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const location = useLocation();
+
   const links = [
-    { href: '#services', label: 'Services' },
-    { href: '#solutions', label: 'Solutions' },
-    { href: '#methode', label: 'Methodology' },
-    { href: '#projets', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/#services', label: 'Services' },
+    { href: '/#solutions', label: 'Solutions' },
+    { href: '/#methode', label: 'Methodology' },
+    { href: '/#projets', label: 'Projects' },
+    { href: '/contact', label: 'Contact', isRoute: true },
   ];
 
   return (
@@ -32,23 +35,34 @@ export default function Navbar() {
     <nav className={isScrolled ? 'nav-scrolled' : ''}>
       <div className="nav-inner">
         <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-          <a className="nav-logo" href="#">
+          <Link className="nav-logo" to="/">
             <img src="/coding_to_ping.png" alt="Coding To Ping" style={{ height: '36px', width: 'auto', display: 'block', transform: 'scale(1.6)', transformOrigin: 'left center' }} />
-          </a>
+          </Link>
         </div>
 
         <div className="nav-desktop-links" style={{ flex: 0, display: 'flex', justifyContent: 'center' }}>
-          {links.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`nav-link${activeSection === l.href.slice(1) ? ' active' : ''}`}
-            >{l.label}</a>
-          ))}
+          {links.map(l => {
+            const isActiveRoute = l.isRoute && location.pathname === l.href;
+            const isActiveHash = !l.isRoute && activeSection === l.href.replace('/#', '');
+            
+            return l.isRoute ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                className={`nav-link${isActiveRoute ? ' active' : ''}`}
+              >{l.label}</Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`nav-link${isActiveHash ? ' active' : ''}`}
+              >{l.label}</a>
+            );
+          })}
         </div>
 
         <div className="nav-actions" style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '16px' }}>
-          <a className="nav-cta" href="#contact">Free Quote →</a>
+          <Link className="nav-cta" to="/contact">Free Quote →</Link>
           <button 
             className="mobile-menu-btn" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -67,14 +81,27 @@ export default function Navbar() {
     {/* Mobile Drawer */}
     <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
       <div className="mobile-drawer-inner">
-        {links.map(l => (
-          <a
-            key={l.href}
-            href={l.href}
-            className={`mobile-nav-link${activeSection === l.href.slice(1) ? ' active' : ''}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >{l.label}</a>
-        ))}
+        {links.map(l => {
+          const isActiveRoute = l.isRoute && location.pathname === l.href;
+          const isActiveHash = !l.isRoute && activeSection === l.href.replace('/#', '');
+          const className = `mobile-nav-link${(isActiveRoute || isActiveHash) ? ' active' : ''}`;
+
+          return l.isRoute ? (
+            <Link
+              key={l.href}
+              to={l.href}
+              className={className}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >{l.label}</Link>
+          ) : (
+            <a
+              key={l.href}
+              href={l.href}
+              className={className}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >{l.label}</a>
+          );
+        })}
       </div>
     </div>
     </>
