@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import solutionsData from '../data/solutionsData';
+
+// Helper component for the FAQ accordion
+const FAQItem = ({ faq }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className={`detail-faq-item detail-faq-item--dark ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+      <div className="detail-faq-question">
+        <h4>{faq.question}</h4>
+        <span className="detail-faq-icon">{isOpen ? '−' : '+'}</span>
+      </div>
+      <div className="detail-faq-answer">
+        <p>{faq.answer}</p>
+      </div>
+    </div>
+  );
+};
 
 export default function SolutionDetail() {
   const { slug } = useParams();
@@ -15,34 +31,50 @@ export default function SolutionDetail() {
     );
   }
 
+  // Get other solutions for the footer link
+  const otherSolutions = solutionsData.filter(s => s.id !== solution.id).slice(0, 3);
+
   return (
     <div className="detail-page detail-page--dark">
-      {/* Hero */}
-      <section className="detail-hero detail-hero--dark">
-        <div className="detail-bg-pattern" aria-hidden="true"></div>
-        <div className="detail-orb detail-orb--1" aria-hidden="true"></div>
-        <div className="detail-orb detail-orb--2" aria-hidden="true"></div>
-        <div className="detail-hero-inner">
-          <Link to="/" className="detail-back-link detail-back-link--dark">← Back to Home</Link>
-          <div className="detail-hero-icon detail-hero-icon--dark">{solution.icon}</div>
-          <h1 className="detail-hero-title detail-hero-title--dark">{solution.label}</h1>
-          <p className="detail-hero-desc detail-hero-desc--dark">{solution.desc}</p>
+      {/* Enhanced Split Hero */}
+      <section className="detail-hero-split detail-hero-split--dark">
+        <div className="detail-hero-split-inner">
+          <div className="detail-hero-split-content">
+            <Link to="/" className="detail-back-link">← Back to Home</Link>
+            <div className="detail-hero-number">{solution.number}</div>
+            <h1 className="detail-hero-title">{solution.label}</h1>
+            <p className="detail-hero-desc">{solution.longDesc}</p>
+            <Link to="/contact" className="detail-hero-cta">Build Your Solution</Link>
+          </div>
+          <div className="detail-hero-split-visual">
+            <div className="detail-hero-icon-large detail-hero-icon--dark">{solution.icon}</div>
+          </div>
         </div>
       </section>
 
       {/* Content */}
       <section className="detail-content detail-content--dark">
         <div className="detail-container">
-          {/* About */}
-          <div className="detail-section">
-            <h2 className="detail-section-title detail-section-title--dark">About This Solution</h2>
-            <div className="detail-divider"></div>
-            <p className="detail-text detail-text--dark">{solution.longDesc}</p>
-          </div>
+          
+          {/* Why Choose Us / Benefits */}
+          {solution.benefits && (
+            <div className="detail-section">
+              <h2 className="detail-section-title">The Business Value</h2>
+              <div className="detail-divider"></div>
+              <div className="detail-benefits-grid">
+                {solution.benefits.map((benefit, i) => (
+                  <div className="detail-benefit-card detail-benefit-card--dark" key={i}>
+                    <h3 className="detail-benefit-title">{benefit.title}</h3>
+                    <p className="detail-benefit-desc">{benefit.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Features */}
           <div className="detail-section">
-            <h2 className="detail-section-title detail-section-title--dark">Key Features</h2>
+            <h2 className="detail-section-title">Platform Features</h2>
             <div className="detail-divider"></div>
             <div className="detail-features-grid">
               {solution.features.map((f, i) => (
@@ -54,9 +86,22 @@ export default function SolutionDetail() {
             </div>
           </div>
 
+          {/* Technologies */}
+          {solution.technologies && (
+            <div className="detail-section">
+              <h2 className="detail-section-title">Tech Stack</h2>
+              <div className="detail-divider"></div>
+              <div className="detail-tech-flex">
+                {solution.technologies.map((tech, i) => (
+                  <span className="detail-tech-pill detail-tech-pill--dark" key={i}>{tech}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Process */}
           <div className="detail-section">
-            <h2 className="detail-section-title detail-section-title--dark">Our Process</h2>
+            <h2 className="detail-section-title">Deployment Process</h2>
             <div className="detail-divider"></div>
             <div className="detail-process">
               {solution.process.map((step, i) => (
@@ -65,6 +110,31 @@ export default function SolutionDetail() {
                   <div className="detail-process-line" aria-hidden="true"></div>
                   <p className="detail-process-text">{step}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* FAQs */}
+          {solution.faqs && (
+            <div className="detail-section">
+              <h2 className="detail-section-title">Frequently Asked Questions</h2>
+              <div className="detail-divider"></div>
+              <div className="detail-faq-list">
+                {solution.faqs.map((faq, i) => (
+                  <FAQItem faq={faq} key={i} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Other Solutions */}
+          <div className="detail-section detail-other-services">
+            <h3 className="detail-other-title">Explore Other Solutions</h3>
+            <div className="detail-other-flex">
+              {otherSolutions.map(s => (
+                <Link to={`/solutions/${s.slug}`} className="detail-other-link detail-other-link--dark" key={s.id}>
+                  {s.label} →
+                </Link>
               ))}
             </div>
           </div>

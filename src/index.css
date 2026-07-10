@@ -779,6 +779,8 @@ footer {
   padding: 32px 28px 28px;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  flex: 1;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
               background 0.4s ease,
               border-color 0.4s ease,
@@ -910,6 +912,7 @@ footer {
   color: rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
   align-self: flex-end;
+  margin-top: auto;
   text-decoration: none;
 }
 
@@ -956,6 +959,8 @@ footer {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   /* give it an explicit height so blob fills the card */
   min-height: 300px;
+  height: 100%;
+  flex: 1;
 }
 
 .svc2-card:hover {
@@ -2296,7 +2301,9 @@ footer {
 .sol-card-link-wrap {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* ===========================
@@ -2962,5 +2969,268 @@ a.contact-method-val:hover {
   }
   .contact-form-wrap {
     padding: 32px 20px;
+  }
+}
+/* ===========================
+   ENHANCED DETAIL PAGES
+   =========================== */
+.detail-hero-split {
+  padding: 160px 24px 80px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+.detail-hero-split--light {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f4f4 100%);
+}
+.detail-hero-split--dark {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+.detail-hero-split-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  width: 100%;
+}
+.detail-hero-split-content {
+  flex: 1;
+  max-width: 600px;
+}
+.detail-hero-number {
+  font-size: 14px;
+  font-weight: 800;
+  color: #E8000E;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+.detail-hero-cta {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #E8000E;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: background 0.3s, transform 0.3s;
+}
+.detail-hero-cta:hover {
+  background: #c5000b;
+  transform: translateY(-3px);
+}
+.detail-hero-split-visual {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+.detail-hero-icon-large {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+}
+.detail-hero-icon-large svg {
+  width: 140px;
+  height: 140px;
+}
+.detail-hero-icon-large.detail-hero-icon--light {
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  color: #111;
+}
+.detail-hero-icon-large.detail-hero-icon--dark {
+  background: rgba(232,0,14,0.1);
+  box-shadow: 0 20px 60px rgba(232,0,14,0.15);
+  border: 1px solid rgba(232,0,14,0.3);
+  color: #fff;
+}
+
+/* Benefits Grid */
+.detail-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.detail-benefit-card {
+  background: #f8f8f8;
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+}
+.detail-benefit-card--dark {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+}
+.detail-benefit-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
+}
+.detail-benefit-card--dark .detail-benefit-title {
+  color: #fff;
+}
+.detail-benefit-desc {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+.detail-benefit-card--dark .detail-benefit-desc {
+  color: rgba(255,255,255,0.6);
+}
+
+/* Tech Stack */
+.detail-tech-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.detail-tech-pill {
+  padding: 8px 20px;
+  background: rgba(232,0,14,0.1);
+  color: #E8000E;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(232,0,14,0.2);
+}
+.detail-tech-pill--dark {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* FAQ Accordion */
+.detail-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.detail-faq-item {
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.detail-faq-item:hover {
+  background: #f0f0f0;
+}
+.detail-faq-item--dark {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+}
+.detail-faq-item--dark:hover {
+  background: rgba(255,255,255,0.06);
+}
+.detail-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+.detail-faq-question h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+.detail-faq-item--dark .detail-faq-question h4 {
+  color: #fff;
+}
+.detail-faq-icon {
+  font-size: 24px;
+  color: #E8000E;
+  font-weight: 300;
+  width: 24px;
+  text-align: center;
+}
+.detail-faq-answer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  padding: 0 24px;
+}
+.detail-faq-answer p {
+  margin: 0 0 24px 0;
+  color: #555;
+  line-height: 1.6;
+}
+.detail-faq-item--dark .detail-faq-answer p {
+  color: rgba(255,255,255,0.6);
+}
+.detail-faq-item.open .detail-faq-answer {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Other Services */
+.detail-other-services {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid #eee;
+}
+.detail-content--dark .detail-other-services {
+  border-color: rgba(255,255,255,0.1);
+}
+.detail-other-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: #111;
+}
+.detail-content--dark .detail-other-title {
+  color: #fff;
+}
+.detail-other-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.detail-other-link {
+  padding: 12px 24px;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.detail-other-link:hover {
+  border-color: #E8000E;
+  color: #E8000E;
+}
+.detail-other-link--dark {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.detail-other-link--dark:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #E8000E;
+}
+
+@media (max-width: 900px) {
+  .detail-hero-split-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .detail-hero-split-visual {
+    justify-content: center;
+    margin-top: 40px;
   }
 }
